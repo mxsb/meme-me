@@ -30,6 +30,8 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Pick a picture for a meme</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Take a picture for a meme</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -26,6 +26,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!
     ]
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextFieldProperties(topTextField, text: "TOP")
@@ -106,7 +110,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        textField.resignFirstResponder()
         
         return true
     }
@@ -122,8 +126,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(_ notification: Notification) {
-        print(notification)
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     func keyboardWillHide(_ notification: Notification) {
@@ -163,15 +168,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func hideToolbars(_ hidden: Bool) {
         upperToolbar.isHidden = hidden
         lowerToolbar.isHidden = hidden
-    }
-    
-    struct Meme {
-        
-        let topText: String
-        let bottomText: String
-        let originalImage: UIImage
-        let memedImage: UIImage
-        
     }
     
 }
