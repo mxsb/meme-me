@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		655C2F861E28DC5B00435817 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655C2F851E28DC5B00435817 /* Meme.swift */; };
 		65ADCA171E228AC400CDE49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ADCA161E228AC400CDE49A /* AppDelegate.swift */; };
 		65ADCA191E228AC400CDE49A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ADCA181E228AC400CDE49A /* ViewController.swift */; };
 		65ADCA1C1E228AC400CDE49A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65ADCA1A1E228AC400CDE49A /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		655C2F851E28DC5B00435817 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		65ADCA131E228AC300CDE49A /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65ADCA161E228AC400CDE49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65ADCA181E228AC400CDE49A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				65ADCA1D1E228AC400CDE49A /* Assets.xcassets */,
 				65ADCA1F1E228AC400CDE49A /* LaunchScreen.storyboard */,
 				65ADCA221E228AC400CDE49A /* Info.plist */,
+				655C2F851E28DC5B00435817 /* Meme.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				655C2F861E28DC5B00435817 /* Meme.swift in Sources */,
 				65ADCA191E228AC400CDE49A /* ViewController.swift in Sources */,
 				65ADCA171E228AC400CDE49A /* AppDelegate.swift in Sources */,
 			);
@@ -512,6 +516,7 @@
 				65ADCA3D1E228AC400CDE49A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65ADCA3E1E228AC400CDE49A /* Build configuration list for PBXNativeTarget "MemeMeTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +525,7 @@
 				65ADCA401E228AC400CDE49A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65ADCA411E228AC400CDE49A /* Build configuration list for PBXNativeTarget "MemeMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +534,7 @@
 				65ADCA431E228AC400CDE49A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
