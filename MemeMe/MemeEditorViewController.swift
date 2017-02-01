@@ -35,7 +35,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         setTextFieldProperties(topTextField, text: "TOP")
         setTextFieldProperties(bottomTextField, text: "BOTTOM")
         shareButton.isEnabled = false
-        cancelButton.isEnabled = false
+//        cancelButton.isEnabled = false
     }
     
     func setTextFieldProperties(_ textField: UITextField, text: String) {
@@ -60,7 +60,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         if let image = didFinishPickingMediaWithInfo[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = image
             shareButton.isEnabled = true
-            cancelButton.isEnabled = true
+//            cancelButton.isEnabled = true
         }
         dismiss(animated: true, completion: nil)
     }
@@ -93,7 +93,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         imageView.image = nil
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
-        shareButton.isEnabled = false
+//        shareButton.isEnabled = false
+        self.dismiss(animated: true, completion: nil)
     }
     
     func pickAnImage(fromSource: UIImagePickerControllerSourceType) {
@@ -145,8 +146,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func save() {
         let memedImage = generateMemedImage()
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: memedImage)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        print(meme)
+        appDelegate.memes.append(meme)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func generateMemedImage() -> UIImage {
