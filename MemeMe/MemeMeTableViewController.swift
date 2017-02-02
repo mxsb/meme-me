@@ -12,13 +12,8 @@ class MemeMeTableViewController: UITableViewController {
 
     var memes: [Meme]!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateData()
         self.tableView.reloadData()
     }

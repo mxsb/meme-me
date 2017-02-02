@@ -8,28 +8,31 @@
 
 import UIKit
 
-class MemeMeCollectionViewController: UICollectionViewController {
+class MemeMeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    let columns: CGFloat = 3.0
+    let rows: CGFloat = 3.0
+    let space:CGFloat = 5.0
+    
     var memes: [Meme]!
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        let space:CGFloat = 3.0
-        let with = (view.frame.size.width - (2 * space)) / 3.0
-        let height = (view.frame.size.height - (2 * space)) / 3.0
+        NotificationCenter.default.addObserver(self, selector: #selector(MemeMeCollectionViewController.orientationChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+//        let with = (view.frame.size.width - (2 * self.space)) / self.columns
+//        let height = (view.frame.size.height - (2 * self.space)) / self.rows
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSize(width: with, height: height)
+//        flowLayout.itemSize = CGSize(width: with, height: height)
         
         updateData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateData()
         self.collectionView?.reloadData()
     }
@@ -54,10 +57,30 @@ class MemeMeCollectionViewController: UICollectionViewController {
         self.navigationController!.pushViewController(detailController, animated: true)
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let with = (view.frame.size.width - (2 * self.space)) / self.columns
+        let height = (view.frame.size.height - (2 * self.space)) / self.rows
+        
+        return CGSize(width: with, height: height)
+    }
+    
     func updateData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         self.memes = appDelegate.memes
     }
 
+    func orientationChange() {
+        if UIDevice.current.orientation.isLandscape {
+        } else {
+        }
+        collectionView?.collectionViewLayout.invalidateLayout()
+        print("rotate")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
 }
