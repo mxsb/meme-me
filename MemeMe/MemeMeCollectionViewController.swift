@@ -21,12 +21,9 @@ class MemeMeCollectionViewController: UICollectionViewController, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(MemeMeCollectionViewController.orientationChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-//        let with = (view.frame.size.width - (2 * self.space)) / self.columns
-//        let height = (view.frame.size.height - (2 * self.space)) / self.rows
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
-//        flowLayout.itemSize = CGSize(width: with, height: height)
         
         updateData()
     }

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController.swift
 //  MemeMe
 //
 //  Created by Schwaab, Max on 08/01/2017.
@@ -60,7 +60,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         if let image = didFinishPickingMediaWithInfo[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = image
             shareButton.isEnabled = true
-//            cancelButton.isEnabled = true
         }
         dismiss(animated: true, completion: nil)
     }
@@ -93,7 +92,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         imageView.image = nil
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
-//        shareButton.isEnabled = false
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -128,7 +126,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func keyboardWillShow(_ notification: Notification) {
         if bottomTextField.isFirstResponder {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = getKeyboardHeight(notification) * (-1)
         }
     }
     
